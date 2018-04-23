@@ -11,6 +11,9 @@ module.exports = function(app){
 	app.post("/api/friends", function(req, res){
 		friendsData.push(req.body);
 		console.log("COOL!: " + req.body);
+
+		var count = friendsData.length;
+		res.send(count);
 	});
 };
 

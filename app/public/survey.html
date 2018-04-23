@@ -144,7 +144,7 @@ $(".submit").on("click", function(event){
  $.post("/api/friends", newFriend,
         function(data) {
 
-        	console.log(data);
+        	console.log("this is the data: " + data);
         });
 	}); //close .submit
 }); // close document on ready
