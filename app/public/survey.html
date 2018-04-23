@@ -10,6 +10,8 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 
 </head>
 
@@ -19,12 +21,129 @@
 	<p>Welcme to the html layout page for the survey :-) </p>
 
 	<form>
-		<input type="text" name="name" placeholder="Enter Your Name">
+		<input type="text" name="name" placeholder="Enter Your Name"><br />
+		<input type="text" name="photo" placeholder="Enter Your Photo Link"><br />
+
+		<p>1. Are you a Narcacist?</p>
+		 1 <input type="radio" class="radio" name="q1" value="1">
+ 		 2 <input type="radio" class="radio" name="q1" value="2">
+  		 3 <input type="radio" class="radio" name="q1" value="3">
+ 		 4 <input type="radio" class="radio" name="q1" value="4">
+ 		 5 <input type="radio" class="radio" name="q1" value="5">
+ 	
+ 
+ 		<p>2. Green Eggs and Ham?</p>
+		 1 <input type="radio" class="radio" name="q2" value=1>
+ 		 2 <input type="radio" class="radio" name="q2" value=2>
+  		 3 <input type="radio" class="radio" name="q2" value=3>
+ 		 4 <input type="radio" class="radio" name="q2" value=4>
+ 		 5 <input type="radio" class="radio" name="q2" value=5>
+ 		
+
+		<p>3. Build that wall!</p>
+		 1 <input type="radio" class="radio" name="q3" value=1>
+ 		 2 <input type="radio" class="radio" name="q3" value=2>
+  		 3 <input type="radio" class="radio" name="q3" value=3>
+ 		 4 <input type="radio" class="radio" name="q3" value=4>
+ 		 5 <input type="radio" class="radio" name="q3" value=5>
+ 		
+
+		<p>4. Steal from the rich give to the poor?</p>
+		 1 <input type="radio" class="radio" name="q4" value=1>
+ 		 2 <input type="radio" class="radio" name="q4" value=2>
+  		 3 <input type="radio" class="radio" name="q4" value=3>
+ 		 4 <input type="radio" class="radio" name="q4" value=4>
+ 		 5 <input type="radio" class="radio" name="q4" value=5>
+ 		
+
+ 		<p>5. Tomato is a fruit..</p>
+		 1 <input type="radio" class="radio" name="q5" value=1>
+ 		 2 <input type="radio" class="radio" name="q5" value=2>
+  		 3 <input type="radio" class="radio" name="q5" value=3>
+ 		 4 <input type="radio" class="radio" name="q5" value=4>
+ 		 5 <input type="radio" class="radio" name="q5" value=5>
+ 		 
+
+ 		<p>6. I enjoy violent things</p>
+		 1 <input type="radio" class="radio" name="q6" value=1>
+ 		 2 <input type="radio" class="radio" name="q6" value=2>
+  		 3 <input type="radio" class="radio" name="q6" value=3>
+ 		 4 <input type="radio" class="radio" name="q6" value=4>
+ 		 5 <input type="radio" class="radio" name="q6" value=5>
+ 		
+
+ 		<p>7. Reading a book is fun</p>
+		 1 <input type="radio" class="radio" name="q7" value=1>
+ 		 2 <input type="radio" class="radio" name="q7" value=2>
+  		 3 <input type="radio" class="radio" name="q7" value=3>
+ 		 4 <input type="radio" class="radio" name="q7" value=4>
+ 		 5 <input type="radio" class="radio" name="q7" value=5>
+ 		
+
+ 		<p>8. Going out clubbing and getting hammered is fun</p>
+		 1 <input type="radio" class="radio" name="q8" value=1>
+ 		 2 <input type="radio" class="radio" name="q8" value=2>
+  		 3 <input type="radio" class="radio" name="q8" value=3>
+ 		 4 <input type="radio" class="radio" name="q8" value=4>
+ 		 5 <input type="radio" class="radio" name="q8" value=5>
+ 		
+
+ 		<p>9. Manatee's are magical</p>
+		 1 <input type="radio" class="radio" name="q9" value=1>
+ 		 2 <input type="radio" class="radio" name="q9" value=2>
+  		 3 <input type="radio" class="radio" name="q9" value=3>
+ 		 4 <input type="radio" class="radio" name="q9" value=4>
+ 		 5 <input type="radio" class="radio" name="q9" value=5>
+ 		 
+
+ 		<p>10. I ENJOY being alone</p>
+		 1 <input type="radio" class="radio" name="q10" value=1>
+ 		 2 <input type="radio" class="radio" name="q10" value=2>
+  		 3 <input type="radio" class="radio" name="q10" value=3>
+ 		 4 <input type="radio" class="radio" name="q10" value=4>
+ 		 5 <input type="radio" class="radio" name="q10" value=5>
+ 	
+ 		<input type="submit" class="submit">
 	</form>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
+
+
+
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+$(".submit").on("click", function(event){
+	event.preventDefault();
+	console.log("its m!");
+
+	var newFriend = {
+		"name": $('[name="name"]').val().trim(),
+		"photo": $('[name="photo"]').val().trim(),
+		"scores": [
+			$('input[name=q1]:checked').val().trim(),
+			$('input[name=q2]:checked').val().trim(),
+			$('input[name=q3]:checked').val().trim(),
+			$('input[name=q4]:checked').val().trim(),
+			$('input[name=q5]:checked').val().trim(),
+			$('input[name=q6]:checked').val().trim(),
+			$('input[name=q7]:checked').val().trim(),
+			$('input[name=q8]:checked').val().trim(),
+			$('input[name=q9]:checked').val().trim(),
+			$('input[name=q10]:checked').val().trim()
+		]
+	};
+
+	console.log(newFriend);
+}); //close .submit
+
+}); // close document on ready
+
+</script>
 
 </html>
