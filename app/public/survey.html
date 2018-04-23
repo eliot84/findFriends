@@ -140,8 +140,13 @@ $(".submit").on("click", function(event){
 	};
 
 	console.log(newFriend);
-}); //close .submit
 
+ $.post("/api/friends", newFriend,
+        function(data) {
+
+        	console.log(data);
+        });
+	}); //close .submit
 }); // close document on ready
 
 </script>
