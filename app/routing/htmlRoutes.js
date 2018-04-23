@@ -1,10 +1,20 @@
+//Dependencies
+var path = require("path");
+
+
 
 // Routes
 // ===========================================================
-	exports.app.get("/", function(req, res) {
-	  res.send("Welcome to the Star Wars Page!");
+module.exports = function(app){
+
+	app.get("/survey.html", function(req, res) {
+	res.sendFile(path.join(__dirname, "../public/survey.html"));
+	//res.send("The Survey page");
+	//res.json(yoda);
 	});
 
-	exports.app.get("/yoda", function(req, res) {
-	  res.json(yoda);
+	app.get("/", function(req, res) {
+	res.sendFile(path.join(__dirname, "../public/home.html"));
+	//res.send("Welcome to the Star Wars Page!");
 	});
+};
