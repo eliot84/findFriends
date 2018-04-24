@@ -43,9 +43,11 @@ module.exports = function(app){
 		}
 
 	//Show Results
-	console.log("here are the results: " + result);	
+	//console.log("here are the results: " + result);	
 
-		res.send("According to our finder magic, your new friend is: " + friendsData[result[0][1]].name + " photo: " + friendsData[result[0][1]].photo);
+		var compatibleFriend = [friendsData[result[0][1]].name, friendsData[result[0][1]].photo];
+
+		res.send(compatibleFriend);
 	});
 };
 
