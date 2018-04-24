@@ -17,11 +17,11 @@
 
 
 <body>
+
 	<h1>Survey</h1>
+
+ 	<div id="survey">	
 	<p>Welcme to the html layout page for the survey :-) </p>
-
-
- 	<div id="here"></div>
 
 	<form>
 		<input type="text" name="name" placeholder="Enter Your Name"><br />
@@ -108,32 +108,14 @@
  	
  		<input type="submit" class="submit">
 	</form>
+	</div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+	<div id="results">
+		<p> We found you a new friend!</p>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+	</div>
+  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
@@ -145,8 +127,13 @@
 
 $( document ).ready(function() {
 
-$(".submit").on("click", function(event){
-	event.preventDefault();
+	$("#results").hide();
+
+
+	$(".submit").on("click", function(event){
+		event.preventDefault();
+
+	$("#survey").hide();
 
 	var newFriend = {
 		"name": $('[name="name"]').val().trim(),
@@ -167,12 +154,19 @@ $(".submit").on("click", function(event){
 
 	console.log(newFriend);
 
- $.post("/api/friends", newFriend,
+ 	$.post("/api/friends", newFriend,
         function(data) {
 
         	console.log("this is the data: " + data[0]);
         	console.log("this is the data: " + data[1]);
-        	$("#here").text("Name: " + data[0] + "photo: " + data[1]);
+        	//$("#results").text("Name: " + data[0] + "photo: " + data[1]);
+
+        	var l1 = "<h3>" + data[0] + "</h3>";
+        	var l2 = "<img src=" + data[1] + ">";
+
+        	$("#results").append(l1, l2)
+
+        	$("#results").show();
 
         });
 	}); //close .submit
