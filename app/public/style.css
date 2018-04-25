@@ -5,5 +5,11 @@
 }
 
 body{
-	background-image: "./images/hypnotize.png";
+	background-color: silver;
+}
+
+.box{
+	height: 100px;
+	width: 100px;
+	background-color: blue;
 }
